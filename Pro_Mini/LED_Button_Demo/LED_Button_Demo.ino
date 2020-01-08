@@ -33,7 +33,7 @@ int i = 0;
 
 void setup() {
   pinMode(BUTTON_PIN, INPUT_PULLUP);
-  attachInterrupt(1, change, RISING);
+  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), change, RISING);
   // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
 #if defined (__AVR_ATtiny85__)
   if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
@@ -71,7 +71,7 @@ void startShow(int L) {
             break;
     case 3: clearCloud();
             theaterChase(strip_a.Color(127, 127, 127), 100); 
-            // Function that makes a white theatre crawl type lighting siduation
+            // Function that makes a white theatre crawl type lighting simulation
             break;
     case 4: rainbow(20);  // Function that slowly scrolls ranbows actross the clouds
             break;
